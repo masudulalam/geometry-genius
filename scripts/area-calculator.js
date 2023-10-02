@@ -1,6 +1,6 @@
 // calculat Triangle area
 
-function calculateTriangleArea(){
+function calculateTriangleArea() {
     // get triangle base value
     const baseField = document.getElementById('triangle-base');
     const baseValueText = baseField.value;
@@ -13,7 +13,7 @@ function calculateTriangleArea(){
 
     // calculate triangle area
     const area = 0.5 * baseValue * heightValue;
-    
+
     // showing triangle area
     const triangleAreaElement = document.getElementById('triangle-area');
     triangleAreaElement.innerText = area;
@@ -21,7 +21,7 @@ function calculateTriangleArea(){
 
 // Calculate rectangle area
 
-function calculateRectangleArea(){
+function calculateRectangleArea() {
     // get rectangle width value
     const widthField = document.getElementById('rectangle-width');
     const widthValueText = widthField.value;
@@ -33,6 +33,13 @@ function calculateRectangleArea(){
     const length = parseFloat(lengthValueText);
     console.log(length)
 
+    // validate input width and length
+    if (isNaN(width) || isNaN(length)) {
+        // console.log('Width is not a number.')
+        alert('Please insert a number');
+        return;
+    }
+
     // calculate triangle area
     const area = width * length;
 
@@ -43,7 +50,7 @@ function calculateRectangleArea(){
 
 
 // reuseable function --> reduce duplicate code
-function calculateParallelogramArea(){
+function calculateParallelogramArea() {
     const base = getInputValue('parallelogram-base');
     console.log(base);
 
@@ -52,9 +59,17 @@ function calculateParallelogramArea(){
 
     const area = base * height;
     setElementInnerText('parallelogram-area', area);
+
+    // validation base and height of parallelogram
+    if (isNaN(base) || isNaN(height)) {
+        alert('Please insert a number.');
+        return;
+    }
 }
 
-function calculateEllipseArea(){
+
+
+function calculateEllipseArea() {
     const majorRadius = getInputValue('ellipse-major-radius');
     const minorRadius = getInputValue('ellipse-minor-radius');
     const area = 3.14 * majorRadius * minorRadius;
@@ -63,7 +78,7 @@ function calculateEllipseArea(){
 }
 
 // reuseable get input field value
-function getInputValue(fieldId){
+function getInputValue(fieldId) {
     const inputField = document.getElementById(fieldId);
     const inputValueText = inputField.value;
     const inputValue = parseFloat(inputValueText);
@@ -71,7 +86,20 @@ function getInputValue(fieldId){
 }
 
 // reuseable set value as an innerText to the span/p/h etc. tag
-function setElementInnerText(elementId, area){
+function setElementInnerText(elementId, area) {
     const element = document.getElementById(elementId);
     element.innerText = area;
 }
+
+
+
+
+
+
+// Data Validation
+/* 
+* 1. set the proper type of input field. (number, date, email)
+* 2. check type typeof
+* 3. isNan
+* 4. 
+*/
