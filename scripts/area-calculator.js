@@ -40,3 +40,30 @@ function calculateRectangleArea(){
     const rectangleAreaElement = document.getElementById('rectangle-area');
     rectangleAreaElement.innerText = area;
 }
+
+
+// reuseable function --> reduce duplicate code
+function calculateParallelogramArea(){
+    const base = getInputValue('parallelogram-base');
+    console.log(base);
+
+    const height = getInputValue('parallelogram-height');
+    console.log(height);
+
+    const area = base * height;
+    setElementInnerText('parallelogram-area', area);
+}
+
+// reuseable get input field value
+function getInputValue(fieldId){
+    const inputField = document.getElementById(fieldId);
+    const inputValueText = inputField.value;
+    const inputValue = parseFloat(inputValueText);
+    return inputValue;
+}
+
+// reuseable set value as an innerText to the span/p/h etc. tag
+function setElementInnerText(elementId, area){
+    const element = document.getElementById(elementId);
+    element.innerText = area;
+}
